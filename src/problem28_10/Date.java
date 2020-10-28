@@ -1,5 +1,6 @@
 package problem28_10;
 
+import java.time.LocalDate;
 import java.util.Calendar;
 import java.util.TimeZone;
 
@@ -207,15 +208,23 @@ public class Date {
 	public String toString()
 	{
 		String result = hours + ":" + minutes + ":" + seconds;
-		result += " " + day + "/" + month + "/" + year;
+		result += " " + day + "/" + month + "/" + year + "\n";
+		result += "Day of week " + currentDay();
 		return result;
 	}
-	public static DayOfWeek currentDay()
+	public static DayOfWeek today()
 	{
 		Calendar c = Calendar.getInstance();
 		TimeZone timeZone = c.getTimeZone();
 		c.setTimeZone(timeZone);
 		int day = c.get(Calendar.DAY_OF_WEEK);
+		DayOfWeek dayOfWeek = DayOfWeek.getDay(day);
+		return dayOfWeek;
+	}
+	public DayOfWeek currentDay()
+	{
+		LocalDate date =  LocalDate.of(this.year, this.month, this.day);
+		int day = date.getDayOfWeek().getValue();
 		DayOfWeek dayOfWeek = DayOfWeek.getDay(day);
 		return dayOfWeek;
 	}

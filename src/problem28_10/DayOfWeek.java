@@ -55,13 +55,18 @@ public enum DayOfWeek {
 	public String toString(int length)
 	{
 		char[] arrDayOfWeek = getDay(number).toString().toCharArray();
+		String result = "";
 		if(length <= arrDayOfWeek.length)
 			 for(int i = 0 ; i < length ; i++)
 			 {
-				 System.out.print(arrDayOfWeek[i]);
+				 result += arrDayOfWeek[i];
 			 }
 		else System.out.println("invalid date" + "\n" + getDay(number).toString() + " don't have " + length + " symbols");
 			//izvejda tolkova bukvi kolkoto mu e zadadeno
-		return "";
+		return result;
+	}
+
+	int getValue() {
+		return number;
 	}
 }

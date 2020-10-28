@@ -1,5 +1,7 @@
 package problem28_10;
 
+import java.time.LocalDate;
+
 import problem28_10.Date;
 import problem28_10.DayOfWeek;
 
@@ -32,8 +34,8 @@ public class DateMain {
 			output(arrDates);
 		}
 		public static void main(String[] args) {
-			/*Date someDate = new Date(31,12,2021,3,2,1);
-			Date otherDate = new Date();
+			Date someDate = new Date(31,12,2021,3,2,1);
+			/*Date otherDate = new Date();
 			
 			System.out.println(someDate);
 			System.out.println(otherDate);
@@ -62,8 +64,9 @@ public class DateMain {
 			DayOfWeek day = DayOfWeek.MONDAY;
 			System.out.println(day.toString(7));
 			
+			//System.out.println("Today is " + Date.today());
 			
-			System.out.println("Today is " + Date.currentDay());
+			System.out.println(someDate);
 		}
 
 	}
