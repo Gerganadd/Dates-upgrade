@@ -1,9 +1,9 @@
 package problem28_10;
 
-import java.time.LocalDate;
+//import java.time.LocalDate;
 
-import problem28_10.Date;
-import problem28_10.DayOfWeek;
+//import problem28_10.Date;
+//import problem28_10.DayOfWeek;
 
 public class DateMain {
 
@@ -24,7 +24,7 @@ public class DateMain {
 				{
 					if(arrDates[k].compareTo(arrDates[i]) == 1)
 					{
-						Date temp = new Date(arrDates[k].getday(), arrDates[k].getMonth(), arrDates[k].getYear(),
+						Date temp = new Date(arrDates[k].getDay(), arrDates[k].getMonth(), arrDates[k].getYear(),
 								arrDates[k].getHours(), arrDates[k].getMinutes(), arrDates[k].getSeconds());
 						arrDates[k] = arrDates[i];
 						arrDates[i] = temp;
@@ -34,8 +34,9 @@ public class DateMain {
 			output(arrDates);
 		}
 		public static void main(String[] args) {
+			/*FIRST PART
 			Date someDate = new Date(31,12,2021,3,2,1);
-			/*Date otherDate = new Date();
+			Date otherDate = new Date();
 			
 			System.out.println(someDate);
 			System.out.println(otherDate);
@@ -56,17 +57,21 @@ public class DateMain {
 			thirdDate.up();
 			System.out.println(thirdDate);
 			
-			System.out.println("Sorted arrey: ");
+			System.out.println("Sorted array: ");
 			Date[] arrDates = {otherDate,someDate,firstDate,secondDate,thirdDate};
-			SortDates(arrDates);*/
+			SortDates(arrDates); */
 			
-
+			Date someDate = new Date(31,12,2021,18,30,0);
+			/*SECOND PART
+			System.out.println("Today is " + Date.today());
 			DayOfWeek day = DayOfWeek.MONDAY;
 			System.out.println(day.toString(7));
+			*/
 			
-			//System.out.println("Today is " + Date.today());
-			
-			System.out.println(someDate);
+			//THIRD PART
+			Event someEvent = new Event(someDate,"movie");
+			System.out.println(someEvent);
+
 		}
 
 	}

@@ -12,9 +12,15 @@ public enum DayOfWeek {
 	SUNDAY(7);
 	
 	private int number;
+	
 	private DayOfWeek(int numberValue)
 	{
 		this.number = numberValue;
+	}
+	
+	int getValue()
+	{
+		return number;
 	}
 	
 	public static DayOfWeek getDay(int n) 
@@ -34,21 +40,17 @@ public enum DayOfWeek {
 	
 	public String toString()
 	{
-		if(number == 1)
-			return "Monday";
-		else if(number == 2)
-			return "Tuesday";
-		else if(number == 3)
-			return "Wednesday";
-		else if(number == 4)
-			return "Thurstday";
-		else if(number == 5)
-			return "Friday";
-		else if(number == 6)
-			return "Saturday";
-		else if(number == 7)
-			return "Sunday";
-		return null;
+		switch(number) 
+		{
+		case 1: return "Monday";
+		case 2: return "Tuesday";
+		case 3: return "Wednesday";
+		case 4: return "Thurstday";
+		case 5: return "Friday";
+		case 6: return "Saturday";
+		case 7: return "Sunday";
+		default: return null;
+		}
 	}
 	
 	public int length;
@@ -56,17 +58,19 @@ public enum DayOfWeek {
 	{
 		char[] arrDayOfWeek = getDay(number).toString().toCharArray();
 		String result = "";
-		if(length <= arrDayOfWeek.length)
+		if (length <= arrDayOfWeek.length)
+		{
 			 for(int i = 0 ; i < length ; i++)
 			 {
 				 result += arrDayOfWeek[i];
 			 }
-		else System.out.println("invalid date" + "\n" + getDay(number).toString() + " don't have " + length + " symbols");
-			//izvejda tolkova bukvi kolkoto mu e zadadeno
+		}
+		else
+		{
+			System.out.println("invalid date" + "\n"
+					+ getDay(number).toString() + " don't have " + length + " symbols");
+		}
+			
 		return result;
-	}
-
-	int getValue() {
-		return number;
 	}
 }
