@@ -27,7 +27,7 @@ public class Reminder {
 		}
 		else 
 		{
-			System.out.println("There is no more space in the array / the array is already full");
+			System.out.println("There is no more space in the array");
 		}
 	}
 	
@@ -74,5 +74,5 @@ public class Reminder {
 		Date today = new Date(day, month, year);
 		
 		print(getAllEventsAt(today));
-	}//no finish yet
+	}//all events for today
 }

@@ -84,6 +84,7 @@ public class DateMain {
 			
 			plans.print(plans.getAllEventsAt(thirdDate));
 			
+			//events for today
 			int day = LocalDate.now().getDayOfMonth();
 			int month = LocalDate.now().getMonthValue();
 			int year = LocalDate.now().getYear();
