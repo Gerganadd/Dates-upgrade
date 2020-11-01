@@ -28,9 +28,7 @@ public class Event {
 	
 	public String toString()
 	{
-		String dateString = date.getDay() + "." + date.getMonth() + "." + date.getYear();
-		String hourString = date.getHours() + ":" + date.getMinutes();
-		String result = dateString + ", " + hourString + " - " + name;
+		String result = date.toStringFormatOnlyDateAndHour() + " - " + name;
 		return result;
 	}
 }

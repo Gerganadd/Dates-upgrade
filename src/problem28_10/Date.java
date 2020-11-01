@@ -281,6 +281,14 @@ public class Date {
 		
 		return -1; 
 	}
+
+	public static boolean isEqual(Date firstDate , Date secondDate)
+	{
+		if(firstDate.getDay() == secondDate.getDay() 
+				&& firstDate.getMonth() == secondDate.getMonth()
+				&& firstDate.getYear() == secondDate.getYear()) return true;
+		else return false;
+	}
 	
 	public static DayOfWeek today() // which day of week is today
 	{
@@ -307,6 +315,13 @@ public class Date {
 		String result = day + "/" + month + "/" + year + " ";
 		result += hours + ":" + minutes + ":" + seconds + "\n";
 		result += "Day of week " + currentDay() + "\n";
+		return result;
+	}
+	
+	public String toStringFormatOnlyDateAndHour()
+	{
+		String result = day + "/" + month + "/" + year + " ";
+		result += hours + ":" + minutes + ":" ;
 		return result;
 	}
 }

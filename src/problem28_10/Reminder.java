@@ -31,14 +31,6 @@ public class Reminder {
 		}
 	}
 	
-	public boolean isEqual(Date firstDate , Date secondDate)
-	{
-		if(firstDate.getDay() == secondDate.getDay() 
-				&& firstDate.getMonth() == secondDate.getMonth()
-				&& firstDate.getYear() == secondDate.getYear()) return true;
-		else return false;
-	}
-	
 	public Event[] getAllEventsAt(Date date)
 	{
 		Event[] eventsOfCurrentDay = new Event[pointer];
@@ -46,7 +38,7 @@ public class Reminder {
 		
 		for (int i = 0 ; i < pointer ; i++)
 		{
-			if (isEqual(eventsArray[i].getDate(), date))
+			if (Date.isEqual(eventsArray[i].getDate(), date))
 			{
 				eventsOfCurrentDay[eventsOfCurrentDayPointer] = eventsArray[i];
 				eventsOfCurrentDayPointer++;
