@@ -1,9 +1,6 @@
 package problem28_10;
 
-//import java.time.LocalDate;
-
-//import problem28_10.Date;
-//import problem28_10.DayOfWeek;
+import java.time.LocalDate;
 
 public class DateMain {
 
@@ -61,7 +58,7 @@ public class DateMain {
 			Date[] arrDates = {otherDate,someDate,firstDate,secondDate,thirdDate};
 			SortDates(arrDates); */
 			
-			Date someDate = new Date(31,12,2021,18,30,0);
+			//Date someDate = new Date(31,12,2021,18,30,0);
 			/*SECOND PART
 			System.out.println("Today is " + Date.today());
 			DayOfWeek day = DayOfWeek.MONDAY;
@@ -69,9 +66,31 @@ public class DateMain {
 			*/
 			
 			//THIRD PART
-			Event someEvent = new Event(someDate,"movie");
-			System.out.println(someEvent);
-
+			Date someDate = new Date(31,12,2021,18,30,0);
+			Date firstDate = new Date(31,10,2021,21,30,0);
+			Date secondDate = new Date(25,12,2019,22,0,0);
+			Date thirdDate = new Date(31,10,2021,23,30,0);
+			
+			Event someEvent = new Event(someDate,"New Year party");
+			Event firstEvent = new Event(firstDate, "Halloween party");
+			Event secondEvent = new Event(secondDate, "Christmas party");
+			Event thirdEvent = new Event(thirdDate, "movie night");
+			
+			Reminder plans = new Reminder();
+			plans.addEvent(someEvent);
+			plans.addEvent(firstEvent);
+			plans.addEvent(secondEvent);
+			plans.addEvent(thirdEvent);
+			
+			plans.print(plans.getAllEventsAt(thirdDate));
+			
+			int day = LocalDate.now().getDayOfMonth();
+			int month = LocalDate.now().getMonthValue();
+			int year = LocalDate.now().getYear();
+			Date today = new Date(day, month, year);
+			Event todayEvent = new Event(today, "party");
+			plans.addEvent(todayEvent);
+			plans.remind();
 		}
 
 	}

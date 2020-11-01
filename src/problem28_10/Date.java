@@ -4,8 +4,6 @@ import java.time.LocalDate;
 import java.util.Calendar;
 import java.util.TimeZone;
 
-//import problem28_10.DayOfWeek;
-
 public class Date {
 	private int seconds;
 	private int minutes;
@@ -284,14 +282,6 @@ public class Date {
 		return -1; 
 	}
 	
-	public String toString()
-	{ 
-		String result = day + "/" + month + "/" + year + " ";
-		result += hours + ":" + minutes + ":" + seconds + "\n";
-		result += "Day of week " + currentDay() + "\n";
-		return result;
-	}
-	
 	public static DayOfWeek today() // which day of week is today
 	{
 		Calendar c = Calendar.getInstance();
@@ -310,5 +300,13 @@ public class Date {
 		DayOfWeek dayOfWeek = DayOfWeek.getDay(day);
 		
 		return dayOfWeek;
+	}
+	
+	public String toString()
+	{ 
+		String result = day + "/" + month + "/" + year + " ";
+		result += hours + ":" + minutes + ":" + seconds + "\n";
+		result += "Day of week " + currentDay() + "\n";
+		return result;
 	}
 }
