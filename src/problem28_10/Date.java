@@ -43,10 +43,10 @@ public class Date {
 	
 	public Date()
 	{
-		//default 0:0:0 1/1/1
-		day = MIN_DAY;
-		month = MIN_MONTH;
-		year = MIN_YEAR;
+		//default 0:0:0 0/0/0
+		day = 0;
+		month = 0;
+		year = 0;
 		hours = MIN_HOUR;
 		minutes = MIN_MINUTE;
 		seconds = MIN_SECOND;
@@ -198,6 +198,22 @@ public class Date {
 		}
 	}
 	
+	public int daysInMonth()
+	{
+		if (this.month == 2) 
+		{
+			if(isLeapYear()) return 29;
+			else return 28;
+		}
+		
+		if ((month <= 7 && month % 2 == 1) ||
+				(month >= 8 && month % 2 == 0))
+		{
+			return 31;
+		}
+		
+		return 30;
+	}
 	public int days()
 	{
 		int days;
@@ -321,7 +337,7 @@ public class Date {
 	public String toStringFormatOnlyDateAndHour()
 	{
 		String result = day + "/" + month + "/" + year + " ";
-		result += hours + ":" + minutes + ":" ;
+		result += hours + ":" + minutes ;
 		return result;
 	}
 }
