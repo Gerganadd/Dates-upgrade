@@ -17,6 +17,7 @@ public class Field {
 	public static final int LABLE_DAY_OF_WEEK_HEIGHT = 20; 
 	public static final int FIX_HEIGHT = 10;
 	public static final int SPACE = 15;
+	public static final Color EVENTS_COLOR = new Color(51, 204, 51);
 	
 	public Field(Date date, Reminder plans)
 	{
@@ -75,6 +76,11 @@ public class Field {
 		this.pnlField = pnlNewField;
 	}
 	
+	public JPanel getPnlField()
+	{
+		return this.pnlField;
+	}
+	
 	public JLabel[] toJLabelsArray(Event[] eventsArr) //event[] to JLabel[]
 	{
 		int lenght = eventsArr.length;
@@ -82,8 +88,6 @@ public class Field {
 		for(int i = 0 ; i < lenght ; i++)
 		{
 			JLabel lblEvent = new JLabel();
-			lblEvent.setBackground(Color.cyan);
-			//lblEvent.setOpaque(true);
 			lblEvent.setText(String.valueOf(eventsArr[i].getName()));
 			lblEventsArray[i] = lblEvent;
 		}
@@ -112,7 +116,7 @@ public class Field {
 			{
 				element.setBounds(xEvent, yEvent, widthEvent, heightEvent);
 				element.setVisible(true); 
-				element.setBackground(Color.cyan);
+				element.setBackground(EVENTS_COLOR);
 				element.setOpaque(true);
 				
 				pnlField.add(element);

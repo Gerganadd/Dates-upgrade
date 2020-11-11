@@ -10,7 +10,7 @@ import javax.swing.JPanel;
 public class Front {
 
 	public static final int WINDOW_WIDTH = 655;
-	public static final int WINDOW_HEIGHT = 600; 
+	public static final int WINDOW_HEIGHT = 610; 
 	public static final int LABLE_DAY_OF_WEEK_WIDTH = 20; 
 	public static final int LABLE_DAY_OF_WEEK_HEIGHT = 20; 
 	public static final int FIELD_WIDTH = 80; 
@@ -19,7 +19,7 @@ public class Front {
 	
 	public static void main(String[] args) {
 		
-		Date date = new Date(7,11,2020);
+		Date date = new Date(11,11,2020);
 		String monthAndYear = Month.of(date.getMonth()).name().toLowerCase() + ", " + date.getYear();
 		JFrame window = new JFrame(monthAndYear); // calendar for month of date
 		window.setLayout(null);
@@ -69,18 +69,36 @@ public class Front {
 		int weekCounter = 1;
 		for (int i = counter; i < counter + daysOfCurrentMonth; i++)
 		{
-			int j = i / 7;			
+			int j = i / 7;		
 			int row = (i % 7) * (FIELD_HEIGHT + 10) + FIRST_SPACE;
 			int col = j * (FIELD_WIDTH + 10) + LABLE_DAY_OF_WEEK_WIDTH + FIRST_SPACE;
 			
 			Date currentDay = new Date(weekCounter, date.getMonth(), date.getYear());		
 			Reminder plans = new Reminder();
+			
 			if (i % 3 == 0)
 			{
 				Event event = new Event(currentDay, "training");
 				plans.addEvent(event);
 			}
+			
 			Field currentField = new Field(currentDay, plans);
+			
+		
+			//set different background color for weekend
+			int dayOfWeekIndex = currentDay.currentDay().getValue();
+			
+			if (dayOfWeekIndex % 6 == 0 || dayOfWeekIndex % 7 == 0)
+			{
+				currentField.getPnlField().setBackground(Color.LIGHT_GRAY);
+			}
+			//set different background color for today
+			if ((i - counter + 1) == date.getDay()) 
+			{
+				Color todayColor = new Color(255,77,77);
+				currentField.getPnlField().setBackground(todayColor);;
+			}
+			
 			arrPnlFields[i] = currentField.make(row, col);
 			
 			weekCounter++;			
